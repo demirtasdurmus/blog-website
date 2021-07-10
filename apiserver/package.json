@@ -1,0 +1,22 @@
+{
+  "name": "apiserver",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "start \"mongoServer\" \"c:Program Files/MongoDB/Server/4.4/bin/mongod.exe\" && nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "google-auth-library": "^7.3.0",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "mongoose": "^5.12.12",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.7"
+  }
+}

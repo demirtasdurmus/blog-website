@@ -1,0 +1,45 @@
+.sub-topics {
+  max-width: 300px;
+  position: absolute;
+  top: 80px;
+  list-style: none;
+  text-align: start;
+}
+
+.sub-topics li {
+  background: #fff;
+  cursor: pointer;
+}
+
+.sub-topics li:hover {
+  background: #1f2937;
+}
+
+.sub-topics.clicked {
+  display: none;
+}
+
+.sub-topic-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  padding: 16px;
+}
+
+.sub-topic-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 993px) {
+  .sub-topics {
+    width: 100%;
+    position: absolute;
+    display: inline-block;
+    top: 170px;
+    list-style: none;
+    text-align: center;
+  }
+}

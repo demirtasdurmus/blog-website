@@ -1,0 +1,24 @@
+{
+  "name": "mern_boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "\"cd apiserver && npm start\"",
+    "dev": "concurrently \"cd apiserver && npm run dev\" \"cd client && npm start\" ",
+    "build": "\"cd client && npm run build\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demirtasdurmus/mern_boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/demirtasdurmus/mern_boilerplate/issues"
+  },
+  "homepage": "https://github.com/demirtasdurmus/mern_boilerplate#readme",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}
