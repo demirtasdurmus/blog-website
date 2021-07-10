@@ -1,33 +1,17 @@
 const express = require('express');
-var bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const config = require("../config/auth.config")
 const router = express.Router();
 const User = require("../db/models/user");
-const { OAuth2Client } = require('google-auth-library')
-const client = new OAuth2Client(config.clientId)
 
-router.post("/register", async (req, res, next) => {
+
+router.post("/get-user/:id", async (req, res, next) => {
   try {
-    const { name, email, password } = req.body;
-    const user = await User.find({ email: email });
-    if (user.length == 0) {
-      const newPass = bcrypt.hashSync(password, 8)
-      const newUser = new User(
-        {
-          name: name,
-          email: email,
-          password: newPass
-        })
-      await newUser.save();
-      res.status(200).send({
-        message: "You have been successfully registered!"
-      });
-    } else {
-      res.status(401).send({
-        message: "This email has already been taken..!"
-      });
-    }
+
+    const { id } = req.params;
+    console.log(typeof (id));
+    const user = await User.findOne({ _id: id });
+
+    res.status(200).send({ user });
+
   } catch (err) {
     console.log(err);
     next(err);

@@ -17,7 +17,7 @@ export default function SignIn() {
     };
 
     const handleLoginUser = (email, password) => {
-        axios.post("/api/users/login",
+        axios.post("/api/auth/login",
             {
                 email: email,
                 password: password
@@ -25,7 +25,7 @@ export default function SignIn() {
             .then((res) => {
                 console.log(res.data.message)
                 localStorage.setItem("token", JSON.stringify(res.data.token));
-                window.location.assign('/secret');
+                window.location.assign('/');
             }).catch((err) => {
                 console.log(err.response.data.message);
                 alert(err.response.data.message);
@@ -55,7 +55,7 @@ export default function SignIn() {
                         />
                     </div>
                     <div className="mb-2 pb-1">
-                        <label class="from-label text-white" for="password">Password</label>
+                        <label className="from-label text-white" for="password">Password</label>
                         <input
                             className="form-control"
                             onChange={handleInputChange}

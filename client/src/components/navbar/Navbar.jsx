@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
@@ -32,12 +32,12 @@ export default function Navbar() {
 
     const extendElement = () => {
         dropdown ? setDropdown(false) : setDropdown(true);
-    }
+    };
 
     return (
         <div className="header">
             <Link to="/" className="header-logo" onClick={closeMobileMenu}>
-                D BLOG <i class="fas fa-blog"></i>
+                D BLOG <i className="fas fa-blog"></i>
             </Link>
             <div className="menu-icon" onClick={handleClick}>
                 <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -83,11 +83,11 @@ export default function Navbar() {
                 </li>
                 <li>
                     <Link
-                        to="/sign-up"
+                        to="/sign-in"
                         className="head-links-mobile"
                         onClick={closeMobileMenu}
                     >
-                        Sign Up
+                        Sign In
                     </Link>
                 </li>
             </ul>

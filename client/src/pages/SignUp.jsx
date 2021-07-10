@@ -17,7 +17,7 @@ export default function SignUp() {
     };
 
     const handleRegisterUser = (name, email, password) => {
-        axios.post("/api/users/register",
+        axios.post("/api/auth/register",
             {
                 name: name,
                 email: email,

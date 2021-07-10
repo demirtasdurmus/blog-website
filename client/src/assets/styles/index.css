@@ -1,3 +1,7 @@
+:root {
+  --primary: #c4e2f3;
+}
+
 .not-found {
   width: 100vw;
   height: 100vh;
@@ -6,7 +10,7 @@
   justify-content: center;
 }
 body {
-  background: #111827;
+  background: #c4e2f3;
 }
 
 * {
