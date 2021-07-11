@@ -85,8 +85,8 @@ export default function SignUp() {
                     >
                         Sign Up
                     </button>
-                    <div className="mt-4 pt-1">
-                        <h5 className="text-center text-white"> Already have an account?</h5>
+                    <div className="my-4 pt-1">
+                        <h5 className="text-center"> Already have an account?</h5>
                         <h5 className="text-center mt-4">
                             <Link to="/sign-in"><span className="text-primary">Sign In</span></Link>
                         </h5>

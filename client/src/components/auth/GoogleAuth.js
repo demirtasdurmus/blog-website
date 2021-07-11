@@ -37,7 +37,7 @@ export default function GoogleAuth() {
                 clientId="530009238-fkrlhatq00pca7aaqinrh2gbeq31d6t6.apps.googleusercontent.com"
                 render={renderProps => (
                     <button
-                        className="btn btn-outline-dark btn-google d-flex justify-content-center align-items-center mt-4"
+                        className="btn btn-outline-dark app-button d-flex justify-content-center align-items-center mt-4"
                         onClick={renderProps.onClick}
                         disabled={renderProps.disabled || submitting === true}
                     >

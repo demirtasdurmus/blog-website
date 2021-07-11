@@ -1,11 +1,15 @@
-# modernMERNBoilerplate
-
-A comprehensive, ready-to-use MongoDB-Express-React-Node Boilerplate
+# A React-Node-MongoDb Blog Website Project
 
 ## Prerequisites
 
 -Node.JS
 -MongoDB
+
+## About
+
+- I've used Material UI components in this project.
+
+- You can freely download, customize and use it in your own projects.
 
 ## Usage:
 

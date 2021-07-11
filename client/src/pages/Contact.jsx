@@ -1,11 +1,12 @@
 import React from 'react';
-import '../../src/assets/styles/index.css';
-
+import
+ContactPageCover
+  from '../components/Contact/ContactPageCover';
 
 export default function Contact() {
   return (
-    <>
-      <h1 className='home'>Contact</h1>
-    </>
+    <div>
+      <ContactPageCover />
+    </div>
   );
 }

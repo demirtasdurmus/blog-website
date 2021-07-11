@@ -53,13 +53,9 @@ export default function Button() {
                 :
                 <div>
                     <p className="text-white mt-3">{activeUser && activeUser}<button className="head-button ml-3" onClick={onLogout}>Logout</button></p>
-
                 </div>
-
-
             }
         </>
-
     )
 };
 

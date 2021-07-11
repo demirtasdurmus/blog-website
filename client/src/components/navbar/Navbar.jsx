@@ -43,11 +43,11 @@ export default function Navbar() {
                 <i className={click ? "fas fa-times" : "fas fa-bars"} />
             </div>
             <ul className={click ? "header-menu visible" : "header-menu"}>
-                <li className="head-item">
+                {/*<li className="head-item">
                     <Link to="/" className="head-links" onClick={closeMobileMenu}>
                         Home
                     </Link>
-                </li>
+    </li>*/}
                 <li
                     className="head-item"
                     onClick={extendElement}
@@ -56,11 +56,11 @@ export default function Navbar() {
                 >
                     {dropdown && <Dropdown closeMobileMenu={closeMobileMenu} />}
                     <Link
-                        to="/topics"
+                        to="/blog"
                         className={click2 ? "head-links active" : "head-links"}
                         onClick={toggleMobileDropdown}
                     >
-                        Topics <i className="fas fa-caret-down" />
+                        Blog <i className="fas fa-caret-down" />
                     </Link>
                 </li>
                 <li className="head-item">

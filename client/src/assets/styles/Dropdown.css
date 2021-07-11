@@ -8,12 +8,12 @@
 }
 
 .sub-topics li {
-  background: #03396d;
+  background: #111827;
   cursor: pointer;
 }
 
 .sub-topics li:hover {
-  background: #1f2937;
+  background: #ccd8e9;
 }
 
 .sub-topics.clicked {
@@ -30,7 +30,7 @@
 }
 
 .sub-topic-link:hover {
-  color: #fff;
+  color: black;
   text-decoration: none;
 }
 

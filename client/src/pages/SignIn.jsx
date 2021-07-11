@@ -74,8 +74,8 @@ export default function SignIn() {
                         Sign In
                     </button>
                     <GoogleAuth />
-                    <div className="mt-4 pt-1">
-                        <h5 className="text-center text-white"> Not signed up yet?</h5>
+                    <div className="my-4 pt-1">
+                        <h5 className="text-center"> Not signed up yet?</h5>
                         <h5 className="text-center mt-4">
                             <Link to="/sign-up"><span className="text-primary">Sign Up</span></Link>
                         </h5>
