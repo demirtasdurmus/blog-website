@@ -34,7 +34,7 @@ export default function GoogleAuth() {
     return (
         <div>
             <GoogleLogin
-                clientId="530009238-fkrlhatq00pca7aaqinrh2gbeq31d6t6.apps.googleusercontent.com"
+                clientId={process.env.REACT_APP_CLIENT_ID}
                 render={renderProps => (
                     <button
                         className="btn btn-outline-dark app-button d-flex justify-content-center align-items-center mt-4"
