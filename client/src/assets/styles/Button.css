@@ -24,6 +24,11 @@
   transition: all 0.3s ease-out;
 }
 
+.active-user {
+  align-items: center !important;
+  margin-bottom: 1.75rem !important;
+}
+
 .active-user:hover {
   cursor: pointer;
 }

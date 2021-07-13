@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
       top: 0,
       left: 0,
       width: '47vw',
-      maxWidth: 740,
+      maxWidth: "45%",
       height: '100%',
       marginLeft: 0,
       marginRight: 0,
