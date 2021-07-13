@@ -1,7 +1,8 @@
 .sub-topics {
   max-width: 300px;
+  min-width: 220px;
   position: absolute;
-  top: 80px;
+  top: 60px;
   list-style: none;
   text-align: start;
   z-index: 1;
@@ -29,6 +30,14 @@
   padding: 16px;
 }
 
+.fa-user {
+  margin-right: 15px;
+}
+
+.fa-sign-out-alt {
+  margin-right: 15px;
+}
+
 .sub-topic-link:hover {
   color: black;
   text-decoration: none;
@@ -39,7 +48,8 @@
     width: 100%;
     position: absolute;
     display: inline-block;
-    top: 170px;
+    top: 320px;
+    left: 33%;
     list-style: none;
     text-align: center;
   }

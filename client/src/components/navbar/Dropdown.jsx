@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { MenuItems } from "./MenuItems";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Dropdown.css";
 
 
 export default function Dropdown({ closeMobileMenu }) {
     const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click)
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        window.location.assign('/sign-in');
+    }
 
     return (
         <div>
@@ -14,19 +17,25 @@ export default function Dropdown({ closeMobileMenu }) {
                 onClick={closeMobileMenu}
                 className={click ? "sub-topics clicked" : "sub-topics"}
             >
-                {MenuItems.map((item, index) => {
-                    return (
-                        <li key={index}>
-                            <Link
-                                to={item.path}
-                                className={item.cName}
-                                onClick={() => setClick(false)}
-                            >
-                                {item.title}
-                            </Link>
-                        </li>
-                    )
-                })}
+                <li key={0}>
+                    <Link
+                        to="/account"
+                        className="sub-topic-link"
+                        onClick={() => setClick(false)}
+                    >
+                        <i class="far fa-user"></i>
+                        Account
+                    </Link>
+                </li>
+
+                <li
+                    key={1}
+                    className="sub-topic-link"
+                    onClick={handleLogout}
+                >
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </li>
             </ul>
 
         </div>

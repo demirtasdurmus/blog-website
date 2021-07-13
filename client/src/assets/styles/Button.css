@@ -23,3 +23,17 @@
   border: 2px solid var(--primary);
   transition: all 0.3s ease-out;
 }
+
+.active-user:hover {
+  cursor: pointer;
+}
+
+.fa-caret-down {
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 993px) {
+  .active-user {
+    display: none;
+  }
+}

@@ -1,62 +1,48 @@
 import React, { useEffect, useState } from 'react'
 import "../../assets/styles/Button.css";
 import { Link } from "react-router-dom";
-import jwtDecode from "jwt-decode";
-import axios from "axios";
+import Dropdown from "./Dropdown";
 
 
-export default function Button() {
+export default function Button({ isLoggedIn, activeUser }) {
+    const [dropdown, setDropdown] = useState(false);
 
-    const [isLoggedIn, setLoggedIn] = useState(false);
-    const [activeUser, setActiveUser] = useState("");
-
-    const checkLogin = () => {
-        if (localStorage.getItem("token") !== null) {
-            let token = localStorage.getItem("token");
-            let userData = jwtDecode(token);
-            if (userData.id) {
-                setLoggedIn(true)
-            }
+    const onMouseEnter = () => {
+        if (window.innerWidth < 993) {
+            setDropdown(false)
+        } else {
+            setDropdown(true)
         }
+    }
+
+    const onMouseLeave = () => {
+        if (window.innerWidth < 993) {
+            setDropdown(false)
+        } else {
+            setDropdown(false)
+        }
+    }
+
+    const extendElement = () => {
+        dropdown ? setDropdown(false) : setDropdown(true);
     };
-    const onLogout = () => {
-        localStorage.removeItem("token");
-        window.location.assign('/sign-in');
-    }
-
-    const getUser = () => {
-        if (localStorage.getItem("token") !== null) {
-            let token = localStorage.getItem("token");
-            let userData = jwtDecode(token);
-            const userId = userData.id
-            axios.post(`/api/users/get-user/${userData.id}`)
-                .then((res) => {
-                    console.log(res.data);
-                    console.log();
-                    setActiveUser(res.data.user.name)
-                })
-        }
-    }
-
-    useEffect(() => {
-        getUser();
-        checkLogin();
-    }, [isLoggedIn, activeUser])
-
 
     return (
-        <>
+        <div>
             {isLoggedIn === false ?
                 <Link to="/sign-in" >
                     <button className="head-button">Sign In</button>
                 </Link>
                 :
-                <div>
-                    <p className="text-white mt-3">{activeUser && activeUser}<button className="head-button ml-3" onClick={onLogout}>Logout</button></p>
-                </div>
+                <li
+                    onClick={extendElement}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                >
+                    <p className="active-user text-white">{activeUser && activeUser}<i className="fas fa-caret-down" /></p>
+                    {dropdown && <Dropdown />}
+                </li>
             }
-        </>
+        </div>
     )
 };
-
-
