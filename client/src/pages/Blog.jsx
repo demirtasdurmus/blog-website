@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Divider } from '@material-ui/core';
 import { Section, SectionAlternate } from '../components/materialUI/organisms';
 import { Breadcrumb, Newsletter, Result } from '../components/Blog';
-
 import { breadcrumb, result } from '../components/Blog/data';
+import axios from "axios";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,12 +21,30 @@ const useStyles = makeStyles(theme => ({
 
 export default function Blog() {
   const classes = useStyles();
+  const [data, setData] = useState("")
+
+  const getBlogPosts = (email, password) => {
+    axios.get("/api/posts/list-posts")
+      .then((res) => {
+        console.log(res.data)
+        setData(res.data)
+
+      }).catch((err) => {
+        console.log(err.response.data.message);
+
+      })
+  };
+
+  useEffect(() => {
+    getBlogPosts();
+  }, [])
+
   return (
     <div className="px-5">
       <SectionAlternate className={classes.sectionBreadcrumb}>
         <Breadcrumb data={breadcrumb} />
       </SectionAlternate>
-      <Result data={result} />
+      <Result data={data} />
       <Section>
         <Newsletter />
       </Section>

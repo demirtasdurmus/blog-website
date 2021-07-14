@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function NotFound() {
   return (
     <div className="d-flex justify-content-center align-items-center" style={{ height: "75vh" }}>
-      <div className="text-center text-white">
+      <div className="text-center">
         <h1><strong>404</strong></h1><br />
         <h2 className="">Page NotFound</h2><br />
         <p>

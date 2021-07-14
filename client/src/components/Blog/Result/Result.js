@@ -190,24 +190,24 @@ const Result = props => {
         <Grid container spacing={isMd ? 4 : 2}>
           <Grid item xs={12} container>
             <Typography variant="body1" className={classes.answerCount}>
-              85 Result Found
+              {data.length} Result Found
             </Typography>
           </Grid>
-          {data.map((item, index) => (
+          {data != "" && data.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
               <CardProduct
                 withShadow
                 liftUp
                 className={classes.cardProduct}
                 mediaContent={
-                  <BlogMediaContent {...item.cover} alt={item.title} />
+                  <BlogMediaContent {...item.title} alt={item.title} />
                 }
                 cardContent={
                   <BlogContent
                     title={item.title}
-                    subtitle={item.subtitle}
-                    author={item.author}
-                    date={item.date}
+                    subtitle={item.content}
+                    author={item.owner.name}
+                    date={new Date(item.createdAt).toLocaleString}
                   />
                 }
               />

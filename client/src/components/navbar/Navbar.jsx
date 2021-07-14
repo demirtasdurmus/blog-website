@@ -53,8 +53,6 @@ export default function Navbar() {
             const userId = userData.id
             axios.post(`/api/users/get-user/${userData.id}`)
                 .then((res) => {
-                    console.log(res.data);
-                    console.log();
                     setActiveUser(res.data.user.name)
                 })
         }
