@@ -29,7 +29,6 @@ export default function Blog() {
         setData(res.data.data)
       }).catch((err) => {
         console.log(err.response.data.message);
-
       })
   };
 
