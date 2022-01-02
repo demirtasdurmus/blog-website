@@ -2,7 +2,7 @@ var bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../db/models/user");
 const { OAuth2Client } = require('google-auth-library');
-const client = new OAuth2Client(config.clientId);
+const client = new OAuth2Client(process.env.GOOGLE_AUTH_CLIENT_ID);
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
@@ -54,7 +54,7 @@ exports.googleAuthenticator = catchAsync(async (req, res, next) => {
     const { idToken } = req.params;
     const ticket = await client.verifyIdToken({
         idToken: idToken,
-        audience: config.clientId
+        audience: process.env.GOOGLE_AUTH_CLIENT_ID
     });
 
     if (!ticket) {
@@ -86,4 +86,11 @@ exports.googleAuthenticator = catchAsync(async (req, res, next) => {
             token: token,
         });
     }
+});
+
+// get user
+exports.getUser = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+    const user = await User.findOne({ _id: id }, { password: 0 });
+    res.status(200).send({ status: "success", data: user });
 });

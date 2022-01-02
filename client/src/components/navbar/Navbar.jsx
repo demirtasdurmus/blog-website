@@ -50,10 +50,9 @@ export default function Navbar() {
         if (localStorage.getItem("token") !== null) {
             let token = localStorage.getItem("token");
             let userData = jwtDecode(token);
-            const userId = userData.id
-            axios.post(`/api/users/get-user/${userData.id}`)
+            axios.get(`/api/users/get-user/${userData.id}`)
                 .then((res) => {
-                    setActiveUser(res.data.user.name)
+                    setActiveUser(res.data.data.name)
                 })
         }
     };

@@ -24,11 +24,9 @@ export default function Blog() {
   const [data, setData] = useState("")
 
   const getBlogPosts = (email, password) => {
-    axios.get("/api/posts/list-posts")
+    axios.get("/api/posts")
       .then((res) => {
-        console.log(res.data)
-        setData(res.data)
-
+        setData(res.data.data)
       }).catch((err) => {
         console.log(err.response.data.message);
 

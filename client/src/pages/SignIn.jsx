@@ -17,7 +17,7 @@ export default function SignIn() {
     };
 
     const handleLoginUser = (email, password) => {
-        axios.post("/api/auth/login",
+        axios.post("/api/users/login",
             {
                 email: email,
                 password: password

@@ -14,7 +14,7 @@ export default function GoogleAuth() {
             return;
         }
         const token = googleData.tokenId;
-        axios.post(`/api/auth/google-auth/${token}`)
+        axios.post(`/api/users/google-auth/${token}`)
             .then((res) => {
                 if (res.data.message === "success") {
                     localStorage.setItem("token", JSON.stringify(res.data.token));
