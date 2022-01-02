@@ -12,7 +12,7 @@ export default function Dropdown({ closeMobileMenu }) {
     }
 
     return (
-        <div>
+        <div className="d-flex justify-content-center">
             <ul
                 onClick={closeMobileMenu}
                 className={click ? "sub-topics clicked" : "sub-topics"}

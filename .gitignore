@@ -3,8 +3,7 @@
 # dependencies
 /node_modules
 /apiserver/node_modules
-/apiserver/config
-/apiserver/db/dbenv.js
+/apiserver/.config.env
 /client/node_modules
 
 /.vscode

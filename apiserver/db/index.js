@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-const dbenv = require("./dbenv")
 
-const connectMongoDb = () => {
+module.exports = () => {
     //connecting mongoose**********************************
-    mongoose.connect(`mongodb://localhost:27017/${dbenv.dbName}`, {
+    mongoose.connect(`mongodb://localhost:27017/${process.env.DBNAME}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true
@@ -13,7 +12,6 @@ const connectMongoDb = () => {
     const db = mongoose.connection;
     db.on("error", console.error.bind(console, "connection error:"));
     db.once("open", () => {
-        console.log(`Connected to ${dbenv.dbName} database`);
+        console.log(`Connected to ${process.env.DBNAME} database`);
     });
-}
-module.exports = connectMongoDb;
+};

@@ -46,10 +46,7 @@
 @media screen and (max-width: 993px) {
   .sub-topics {
     width: 100%;
-    position: absolute;
-    display: inline-block;
     top: 320px;
-    left: 33%;
     list-style: none;
     text-align: center;
   }

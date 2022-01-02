@@ -1,44 +1,42 @@
-const createError = require('http-errors');
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const logger = require('morgan');
-// const cors = require("cors");
-const connectMongoDb = require("./db/index")
 
+// built in Nodemodules
+const path = require("path");
+// libraries and frameworks
+const express = require("express");
 const app = express();
-app.use(express.static(path.join(__dirname, '../client/build')));
+const morgan = require("morgan");
+const api = require("./api");
+const globalErrorHandler = require("./middleware/globalErrorHandler");
+const AppError = require('./utils/appError');
+const connectMongoDb = require("./db/index");
 
+console.log("env", process.env.NODE_ENV)
+// Development logging
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+};
+// to parse the incoming requests in JSON payloads
+app.use(express.json());
+// to parse the incoming requests in urlencodedform
+app.use(express.urlencoded({ extended: true }));
+// to serve the static files
+app.use(express.static(path.join(__dirname, '../client/build')));
+// connect database
 connectMongoDb();
 
-app.use(logger('dev'));
-app.use(express.json());
-// app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.urlencoded({ extended: false }));
-
-app.use("/api", require("./api"))
+// redirect incoming requests to api.js
+app.use("/api", api);
 
 // Always return the main index.html, so react-router render the route in the client
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  next(createError(404));
+app.all('*', (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
-// error handler
-app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.send(err);
-});
+// global error handler
+app.use(globalErrorHandler);
 
 module.exports = app;
