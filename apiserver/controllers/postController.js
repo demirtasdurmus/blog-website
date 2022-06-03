@@ -4,13 +4,13 @@ const catchAsync = require('../utils/catchAsync');
 
 // get posts
 exports.getPosts = catchAsync(async (req, res, next) => {
-    const posts = await Post.find({}).populate("owner", { password: 0 })
-    res.status(200).send({ status: "success", data: posts });
+    const posts = await Post.find({}).populate("owner", {password: 0})
+    res.status(200).send({status: "success", data: posts});
 });
 
 // create posts
 exports.createPosts = catchAsync(async (req, res, next) => {
-    const { title, content, image, owner } = req.body;
+    const {title, content, image, owner} = req.body;
     if (!content) {
         return next(new AppError("Content is mandatory!!!", 400));
     }
@@ -23,6 +23,6 @@ exports.createPosts = catchAsync(async (req, res, next) => {
         }
     );
     await newPost.save();
-    res.status(204).send({ status: "success", data: "" });
+    res.status(204).send({status: "success", data: ""});
 });
 
