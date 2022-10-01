@@ -1,7 +1,11 @@
 import React from 'react';
 import { makeStyles, Divider } from '@material-ui/core';
 import { Section, SectionAlternate } from '../components/materialUI/organisms';
-import { GetStarted, Features, Reviews, QuickStart, Services, Hero } from '../components/homePage';
+import {
+  GetStarted, Features,
+  // Reviews, QuickStart, 
+  Services, Hero
+} from '../components/homePage';
 
 
 

@@ -3,7 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Divider } from '@material-ui/core';
 import { Section, SectionAlternate } from '../components/materialUI/organisms';
 import { Breadcrumb, Newsletter, Result } from '../components/Blog';
-import { breadcrumb, result } from '../components/Blog/data';
+import {
+  breadcrumb,
+  // result 
+} from '../components/Blog/data';
 import axios from "axios";
 
 const useStyles = makeStyles(theme => ({

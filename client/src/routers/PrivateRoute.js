@@ -5,7 +5,7 @@ import jwtDecode from "jwt-decode";
 
 export default function PrivateRoute(props) {
 
-    const { component: Component, ...rest } = props;
+    const { component: Component } = props;
 
     if (localStorage.getItem("token") === null ||
         jwtDecode(localStorage.getItem("token")).id === null) {

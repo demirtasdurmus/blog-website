@@ -193,7 +193,7 @@ const Result = props => {
               {data.length} Result Found
             </Typography>
           </Grid>
-          {data != "" && data.map((item, index) => (
+          {data !== "" && data.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
               <CardProduct
                 withShadow
